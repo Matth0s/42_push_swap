@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:21:30 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 00:25:01 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 03:12:00 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,19 @@ void	s_move(t_stack *stack);
 void	r_move(t_stack *stack);
 void	rr_move(t_stack *stack);
 void	p_move(t_stack *stack_1, t_stack *stack_2);
+
+void	sm(t_stack *a, t_stack *b, char c);
+void	rm(t_stack *a, t_stack *b, char c);
+void	rrm(t_stack *a, t_stack *b, char c);
+void	pm(t_stack *a, t_stack *b, char c);
 //------------------------------------------------------------------------------
 
-
-
-
+//-----------------------------Funções de Ordenação-----------------------------
+int		check_sort(t_stack *stack);
+void	sorted_3(t_stack *a, t_stack *b);
+void	sorted_5(t_stack *a, t_stack *b);
+void	sorted_100(t_stack *a, t_stack *b);
+void	sorted_500(t_stack *a, t_stack *b);
+//------------------------------------------------------------------------------
 
 #endif

@@ -6,24 +6,16 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 22:23:29 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 01:46:39 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 03:09:27 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_sort(t_stack *stack)
-{
-	int i;
-
-	i = -1;
-	while (++i < stack->n - 1)
-		if (stack->array[i] > stack->array[i + 1])
-			return (0);
-	return (1);
-}
+void	print_stacks(t_stack *a, t_stack *b);
 
 //------------------------------Funções da main---------------------------------
+
 int	init_stacks(int n, t_stack *a, t_stack *b)
 {
 	a->n = n;
@@ -51,8 +43,6 @@ void	error(t_stack *a, t_stack *b, int i)
 	exit(1);
 }
 
-void	print_stacks(t_stack *a, t_stack *b);
-
 int	main(int argc, char **argv)
 {
 	t_stack	a;
@@ -66,8 +56,15 @@ int	main(int argc, char **argv)
 		error(&a, &b, 1);
 	if (check_sort(&a))
 		return (0);
-	print_stacks(&a,&b);
-
-	//começar as coisa
+	//print_stacks(&a,&b);
+	if (a.n <= 3)
+		sorted_3(&a, &b);
+	else if (a.n <= 5)
+		sorted_5(&a, &b);
+	else if (a.n <= 100)
+		sorted_100(&a, &b);
+	else
+		sorted_500(&a, &b);
+	//print_stacks(&a,&b);
 	return (0);
 }

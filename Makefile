@@ -2,6 +2,8 @@
 SRC		=	push_swap.c \
 			check_args.c \
 			primary_moves.c \
+			secundary_move.c \
+			sorted.c \
 			utils.c \
 			\
 			print_stack.c
