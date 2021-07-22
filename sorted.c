@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 02:44:26 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 03:50:40 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 13:47:05 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	check_sort(t_stack *stack)
 	return (1);
 }
 
-void	sorted_3(t_stack *a, t_stack *b)
+void	micro_sorted(t_stack *a, t_stack *b)
 {
 	if (a->n == 2)
 		sm(a, b, 'a');
@@ -49,14 +49,43 @@ void	sorted_3(t_stack *a, t_stack *b)
 	}
 }
 
-void	sorted_5(t_stack *a, t_stack *b)
+
+
+
+void	little_sorted(t_stack *a, t_stack *b)
 {
+	int little;
+	int i;
+
+	little = 0;
+	while (a->n != 3 && ++little)
+	{
+		i = 0;
+		while (a->array[i] != little)
+			i++;
+		if (i <= a->n/2)
+			while (i--)
+				rm(a, b, 'a');
+		else
+			while (i++ < a->n)
+				rrm(a, b, 'a');
+		pm(a, b, 'b');
+	}
+ 	micro_sorted(a, b);
+	while (little--)
+		pm(a, b, 'a');
 }
 
-void	sorted_100(t_stack *a, t_stack *b)
+void	medium_sorted(t_stack *a, t_stack *b)
 {
+	(void)a;
+	(void)b;
+	return;
 }
 
-void	sorted_500(t_stack *a, t_stack *b)
+void	big_sorted(t_stack *a, t_stack *b)
 {
+	(void)a;
+	(void)b;
+	return;
 }

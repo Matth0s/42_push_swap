@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 22:23:29 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 03:09:27 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 14:09:06 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,13 @@ int	main(int argc, char **argv)
 		return (0);
 	//print_stacks(&a,&b);
 	if (a.n <= 3)
-		sorted_3(&a, &b);
-	else if (a.n <= 5)
-		sorted_5(&a, &b);
+		micro_sorted(&a, &b);
+	else if (a.n <= 10)
+		little_sorted(&a, &b);
 	else if (a.n <= 100)
-		sorted_100(&a, &b);
+		medium_sorted(&a, &b);
 	else
-		sorted_500(&a, &b);
+		big_sorted(&a, &b);
 	//print_stacks(&a,&b);
 	return (0);
 }
