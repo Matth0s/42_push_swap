@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 22:23:29 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 14:09:06 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 14:21:51 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,17 +54,17 @@ int	main(int argc, char **argv)
 		error(&a, &b, 0);
 	if (check_args(argc, argv, &a, &b))
 		error(&a, &b, 1);
-	if (check_sort(&a))
+	if (check_sorting(&a))
 		return (0);
 	//print_stacks(&a,&b);
 	if (a.n <= 3)
-		micro_sorted(&a, &b);
+		micro_sorting(&a, &b);
 	else if (a.n <= 10)
-		little_sorted(&a, &b);
+		little_sorting(&a, &b);
 	else if (a.n <= 100)
-		medium_sorted(&a, &b);
+		medium_sorting(&a, &b);
 	else
-		big_sorted(&a, &b);
+		big_sorting(&a, &b);
 	//print_stacks(&a,&b);
 	return (0);
 }

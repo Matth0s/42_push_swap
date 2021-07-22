@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:21:30 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 12:51:40 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 14:22:14 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ void	pm(t_stack *a, t_stack *b, char c);
 //------------------------------------------------------------------------------
 
 //-----------------------------Funções de Ordenação-----------------------------
-int		check_sort(t_stack *stack);
-void	micro_sorted(t_stack *a, t_stack *b);
-void	little_sorted(t_stack *a, t_stack *b);
-void	medium_sorted(t_stack *a, t_stack *b);
-void	big_sorted(t_stack *a, t_stack *b);
+int		check_sorting(t_stack *stack);
+void	micro_sorting(t_stack *a, t_stack *b);
+void	little_sorting(t_stack *a, t_stack *b);
+void	medium_sorting(t_stack *a, t_stack *b);
+void	big_sorting(t_stack *a, t_stack *b);
 //------------------------------------------------------------------------------
 
 #endif
