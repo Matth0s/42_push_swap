@@ -3,7 +3,8 @@ SRC		=	push_swap.c \
 			check_args.c \
 			primary_moves.c \
 			secundary_moves.c \
-			sorted.c \
+			funcs_sorting_1.c \
+			funcs_sorting_2.c \
 			utils.c \
 			\
 			print_stack.c

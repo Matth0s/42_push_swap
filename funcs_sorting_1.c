@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorted.c                                           :+:      :+:    :+:   */
+/*   funcs_sorting_1.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 02:44:26 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 14:22:34 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 14:32:03 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,21 +68,7 @@ void	little_sorting(t_stack *a, t_stack *b)
 				rrm(a, b, 'a');
 		pm(a, b, 'b');
 	}
- 	micro_sorted(a, b);
+ 	micro_sorting(a, b);
 	while (little--)
 		pm(a, b, 'a');
-}
-
-void	medium_sorting(t_stack *a, t_stack *b)
-{
-	(void)a;
-	(void)b;
-	return;
-}
-
-void	big_sorting(t_stack *a, t_stack *b)
-{
-	(void)a;
-	(void)b;
-	return;
 }
