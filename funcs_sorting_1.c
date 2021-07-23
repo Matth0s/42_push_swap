@@ -6,26 +6,30 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 02:44:26 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 23:16:03 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:04:21 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_sorting(t_stack *stack)
+int	check_sorting(t_stack *stack, int inv)
 {
 	int	i;
 
 	i = -1;
 	while (++i < stack->n - 1)
-		if (stack->array[i] > stack->array[i + 1])
+	{
+		if (!(inv) && stack->array[i] > stack->array[i + 1])
 			return (0);
+		if (inv && stack->array[i] < stack->array[i + 1])
+			return (0);
+	}
 	return (1);
 }
 
 void	micro_sorting(t_stack *a, t_stack *b)
 {
-	if (check_sorting(a))
+	if (check_sorting(a, 0))
 		return ;
 	else if (a->n == 2)
 		sm(a, b, 'a');
@@ -51,35 +55,27 @@ void	micro_sorting(t_stack *a, t_stack *b)
 	}
 }
 
-void	little_sorting_aux(t_stack *a, t_stack *b, int little)
-{
-	int	i;
-
-	i = 0;
-	while (a->array[i] != little)
-		i++;
-	if (i <= a->n / 2)
-		while (i--)
-			rm(a, b, 'a');
-	else
-		while (i++ < a->n)
-			rrm(a, b, 'a');
-	pm(a, b, 'b');
-}
-
 void	little_sorting(t_stack *a, t_stack *b)
 {
 	int	little;
 	int	i;
+	int	j;
 
 	i = 0;
-	little = a->array[0];
-	while (++i < a->n)
-		if (little > a->array[i])
-			little = a->array[i];
-	i = 0;
+	little = get_little(a);
 	while (a->n != 3 && ++little && ++i)
-		little_sorting_aux(a, b, little - 1);
+	{
+		j = 0;
+		while (a->array[j] != little - 1)
+			j++;
+		if (j <= a->n / 2)
+			while (j--)
+				rm(a, b, 'a');
+		else
+			while (j++ < a->n)
+				rrm(a, b, 'a');
+		pm(a, b, 'b');
+	}
 	micro_sorting(a, b);
 	while (i--)
 		pm(a, b, 'a');

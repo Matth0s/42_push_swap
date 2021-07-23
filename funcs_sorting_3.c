@@ -6,14 +6,13 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:47:15 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 19:52:44 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:05:30 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
 #include "push_swap.h"
 
-static void	move_nums_block(t_stack *a, t_stack *b, int start, int end)
+/* static void	move_nums_block(t_stack *a, t_stack *b, int start, int end)
 {
 	int	i;
 	int	j;
@@ -70,7 +69,7 @@ void	big_sorting(t_stack *a, t_stack *b)
 	int	j;
 	int	i;
 
-	int NBB = 10;
+	int NBB = 13;
 	range = a->n / NBB;
 	i = -1;
 	while (++i < NBB)
@@ -84,3 +83,26 @@ void	big_sorting(t_stack *a, t_stack *b)
 	while (--i)
 		move_nums_back(a, b, i);
 }
+
+void	medium_sorting_2(t_stack *a, t_stack *b)
+{
+	int	range;
+	int	i;
+
+	range = a->n / 2;
+	i = 0;
+	while (i++ < range)
+		move_nums_block(a, b, 0, range);
+	//print_stacks(a, b);
+
+	medium_sorting_i(a, b);
+	//print_stacks(a, b);
+//	exit(0);
+	medium_sorting(a, b);
+	//print_stacks(a, b);
+	//exit(0);
+	i = b->n + 1;
+	while (--i)
+		move_nums_back(a, b, i);
+	//print_stacks(a, b);
+} */

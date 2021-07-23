@@ -30,7 +30,7 @@ $(NAME):	$(OBJ) $(INCLUDE)
 	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
 	@echo ""
 	@echo "/ ************************************ \\"
-	@echo "|           Push_Swap Criado            |"
+	@echo "|           Push_Swap Criado           |"
 	@echo "\\ ************************************ /"
 	@echo ""
 
@@ -39,15 +39,15 @@ clean:
 	@rm -rf $(OBJ)
 	@echo ""
 	@echo "/ ************************************ \\"
-	@echo "|         Arquivos .o Deletados         |"
+	@echo "|         Arquivos .o Deletados        |"
 	@echo "\\ ************************************ /"
 	@echo ""
 
 fclean:		clean
-	@rm -rf $(NAME)
+	@rm -rf $(NAME) log_error
 	@echo ""
 	@echo "/ ************************************ \\"
-	@echo "|           Push_Swap Deletada          |"
+	@echo "|           Push_Swap Deletada         |"
 	@echo "\\ ************************************ /"
 	@echo ""
 #--------------------------------------//---------------------------------------

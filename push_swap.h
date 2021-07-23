@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:21:30 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 02:33:24 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 18:53:34 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-
-# define NBM 5
 
 typedef struct s_stack
 {
@@ -28,6 +26,8 @@ typedef struct s_stack
 int		ft_isdigit(int c);
 int		ft_isspace(int c);
 double	ft_atod(const char *nptr);
+int		get_little(t_stack *stack);
+int		get_big(t_stack *stack);
 //------------------------------------------------------------------------------
 
 //----------------------------Checando os Argumentos----------------------------
@@ -51,11 +51,11 @@ void	pm(t_stack *a, t_stack *b, char c);
 //------------------------------------------------------------------------------
 
 //-----------------------------Funções de Ordenação-----------------------------
-int		check_sorting(t_stack *stack);
+int		check_sorting(t_stack *stack, int inv);
 void	micro_sorting(t_stack *a, t_stack *b);
 void	little_sorting(t_stack *a, t_stack *b);
-void	medium_sorting(t_stack *a, t_stack *b);
-void	big_sorting(t_stack *a, t_stack *b);
+void	medium_sorting(t_stack *a, t_stack *b, int nb);
+void	big_sorting(t_stack *a, t_stack *b, int nb);
 //------------------------------------------------------------------------------
 
 #endif

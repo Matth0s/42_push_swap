@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 02:47:19 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 19:57:50 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 15:34:31 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,3 @@ void	pm(t_stack *a, t_stack *b, char c)
 	write(1, &c, 1);
 	write(1, "\n", 1);
 }
-

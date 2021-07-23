@@ -6,13 +6,13 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 14:27:18 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 23:38:11 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 19:05:04 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	move_nums_block(t_stack *a, t_stack *b, int start, int end)
+static void	move_block(t_stack *a, t_stack *b, int start, int end)
 {
 	int	i;
 	int	j;
@@ -37,17 +37,7 @@ static void	move_nums_block(t_stack *a, t_stack *b, int start, int end)
 			sm(a, b, 'b');
 }
 
-static void	treat_rest(t_stack *a, t_stack *b)
-{
-	if (a->n <= 1)
-		return ;
-	else if (a->n <= 3)
-		micro_sorting(a, b);
-	else
-		little_sorting(a, b);
-}
-
-static void	move_nums_back(t_stack *a, t_stack *b, int num)
+static void	move_back(t_stack *a, t_stack *b, int num)
 {
 	int	i;
 
@@ -63,22 +53,58 @@ static void	move_nums_back(t_stack *a, t_stack *b, int num)
 	pm(a, b, 'a');
 }
 
-void	medium_sorting(t_stack *a, t_stack *b)
+void	medium_sorting(t_stack *a, t_stack *b, int nb)
 {
+	int	little;
 	int	range;
 	int	j;
 	int	i;
 
-	range = a->n / NBM;
 	i = -1;
-	while (++i < NBM)
+	range = a->n / nb;
+	little = get_little(a) - 1;
+	while (++i < nb)
 	{
 		j = 0;
 		while (j++ < range)
-			move_nums_block(a, b, i * range, (i + 1)* range);
+			move_block(a, b, little + i * range, little + (i + 1) * range);
 	}
-	treat_rest(a, b);
-	i = range * NBM + 1;
+	if (a->n > 1)
+	{
+		if (a->n <= 3)
+			micro_sorting(a, b);
+		else
+			little_sorting(a, b);
+	}
+	i = b->n + 1;
 	while (--i)
-		move_nums_back(a, b, i);
+		move_back(a, b, i);
+}
+
+void	big_sorting(t_stack *a, t_stack *b, int nb)
+{
+	int	little;
+	int	range;
+	int	j;
+	int	i;
+
+	i = -1;
+	range = a->n / nb;
+	little = get_little(a) - 1;
+	while (++i < nb)
+	{
+		j = 0;
+		while (j++ < range)
+			move_block(a, b, little + i * range, little + (i + 1) * range);
+	}
+	if (a->n > 1)
+	{
+		if (a->n <= 3)
+			micro_sorting(a, b);
+		else
+			little_sorting(a, b);
+	}
+	i = b->n + 1;
+	while (--i)
+		move_back(a, b, i);
 }
