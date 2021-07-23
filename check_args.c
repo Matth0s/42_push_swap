@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:56:34 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 02:00:54 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 19:50:49 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	isrepeated(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
-	int k;
+	int	k;
 
 	i = -1;
 	j = 0;
@@ -68,9 +68,9 @@ int	isrepeated(t_stack *a, t_stack *b)
 
 void	replace_numbs(t_stack *a, t_stack *b)
 {
-	int cont;
-	int i;
-	int j;
+	int	cont;
+	int	i;
+	int	j;
 
 	i = -1;
 	while (++i < a->n)
@@ -87,7 +87,7 @@ void	replace_numbs(t_stack *a, t_stack *b)
 		a->array[i] = b->array[i];
 }
 
-int check_args(int n, char **args, t_stack *a, t_stack *b)
+int	check_args(int n, char **args, t_stack *a, t_stack *b)
 {
 	if (isnumbs(n, args))
 		return (1);

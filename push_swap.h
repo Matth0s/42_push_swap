@@ -6,15 +6,18 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:21:30 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 14:22:14 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 02:33:24 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFT_H
-# define LIBFT_H
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-#include <unistd.h>
-#include <stdlib.h>
+# include <unistd.h>
+# include <stdlib.h>
+
+# define NBM 5
+# define NBB 5
 
 typedef struct s_stack
 {
@@ -28,7 +31,6 @@ int		ft_isspace(int c);
 double	ft_atod(const char *nptr);
 //------------------------------------------------------------------------------
 
-
 //----------------------------Checando os Argumentos----------------------------
 int		isnumbs(int n, char **str);
 int		isints(int n, char **str, t_stack *stack);
@@ -36,7 +38,6 @@ int		isrepeated(t_stack *a, t_stack *b);
 void	replace_numbs(t_stack *a, t_stack *b);
 int		check_args(int n, char **args, t_stack *a, t_stack *b);
 //------------------------------------------------------------------------------
-
 
 //----------------------------------Movimentos----------------------------------
 void	s_move(t_stack *stack);

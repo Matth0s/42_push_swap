@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:19:12 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/21 16:51:10 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/22 19:53:19 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ void	s_move(t_stack *stack)
 
 void	r_move(t_stack *stack)
 {
-	int temp;
-	int i;
+	int	temp;
+	int	i;
 
 	i = -1;
 	temp = stack->array[0];
@@ -35,8 +35,8 @@ void	r_move(t_stack *stack)
 
 void	rr_move(t_stack *stack)
 {
-	int temp;
-	int i;
+	int	temp;
+	int	i;
 
 	i = stack->n;
 	temp = stack->array[stack->n - 1];

@@ -5,6 +5,7 @@ SRC		=	push_swap.c \
 			secundary_moves.c \
 			funcs_sorting_1.c \
 			funcs_sorting_2.c \
+			funcs_sorting_3.c \
 			utils.c \
 			\
 			print_stack.c
@@ -32,6 +33,7 @@ $(NAME):	$(OBJ) $(INCLUDE)
 	@echo "|           Push_Swap Criado            |"
 	@echo "\\ ************************************ /"
 	@echo ""
+
 #--------------------------------------//---------------------------------------
 clean:
 	@rm -rf $(OBJ)

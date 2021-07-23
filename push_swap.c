@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 22:23:29 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 14:21:51 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 02:17:07 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void	print_stacks(t_stack *a, t_stack *b);
 
 //------------------------------Funções da main---------------------------------
-
 int	init_stacks(int n, t_stack *a, t_stack *b)
 {
 	a->n = n;
@@ -39,7 +38,7 @@ void	error(t_stack *a, t_stack *b, int i)
 		free(a->array);
 		free(b->array);
 	}
-	write(1,"Error\n",6);
+	write(1, "Error\n", 6);
 	exit(1);
 }
 
@@ -48,8 +47,6 @@ int	main(int argc, char **argv)
 	t_stack	a;
 	t_stack	b;
 
-	if (argc == 1)
-		error(&a, &b, 0);
 	if (init_stacks(argc - 1, &a, &b))
 		error(&a, &b, 0);
 	if (check_args(argc, argv, &a, &b))
