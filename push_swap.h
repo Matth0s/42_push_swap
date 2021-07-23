@@ -17,7 +17,6 @@
 # include <stdlib.h>
 
 # define NBM 5
-# define NBB 5
 
 typedef struct s_stack
 {

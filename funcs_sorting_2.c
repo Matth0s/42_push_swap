@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	move_nums_block(t_stack *a, t_stack *b, int start, int end)
+static void	move_nums_block(t_stack *a, t_stack *b, int start, int end)
 {
 	int	i;
 	int	j;
@@ -37,7 +37,7 @@ void	move_nums_block(t_stack *a, t_stack *b, int start, int end)
 			sm(a, b, 'b');
 }
 
-void	treat_rest(t_stack *a, t_stack *b)
+static void	treat_rest(t_stack *a, t_stack *b)
 {
 	if (a->n <= 1)
 		return ;
@@ -47,7 +47,7 @@ void	treat_rest(t_stack *a, t_stack *b)
 		little_sorting(a, b);
 }
 
-void	move_nums_back(t_stack *a, t_stack *b, int num)
+static void	move_nums_back(t_stack *a, t_stack *b, int num)
 {
 	int	i;
 
