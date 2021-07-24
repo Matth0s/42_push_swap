@@ -6,13 +6,13 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:56:34 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/22 19:50:49 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 20:59:22 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	isnumbs(int n, char **str)
+static int	isnumbs(int n, char **str)
 {
 	int		i;
 	int		j;
@@ -30,7 +30,7 @@ int	isnumbs(int n, char **str)
 	return (0);
 }
 
-int	isints(int n, char **str, t_stack *stack)
+static int	isints(int n, char **str, t_stack *stack)
 {
 	double	num;
 	int		i;
@@ -46,7 +46,7 @@ int	isints(int n, char **str, t_stack *stack)
 	return (0);
 }
 
-int	isrepeated(t_stack *a, t_stack *b)
+static int	isrepeated(t_stack *a, t_stack *b)
 {
 	int	i;
 	int	j;
@@ -66,7 +66,7 @@ int	isrepeated(t_stack *a, t_stack *b)
 	return (0);
 }
 
-void	replace_numbs(t_stack *a, t_stack *b)
+static void	replace_numbs(t_stack *a, t_stack *b)
 {
 	int	cont;
 	int	i;

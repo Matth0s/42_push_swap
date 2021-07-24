@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:21:30 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 18:53:34 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 21:00:34 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,6 @@ int		get_big(t_stack *stack);
 //------------------------------------------------------------------------------
 
 //----------------------------Checando os Argumentos----------------------------
-int		isnumbs(int n, char **str);
-int		isints(int n, char **str, t_stack *stack);
-int		isrepeated(t_stack *a, t_stack *b);
-void	replace_numbs(t_stack *a, t_stack *b);
 int		check_args(int n, char **args, t_stack *a, t_stack *b);
 //------------------------------------------------------------------------------
 
@@ -56,6 +52,12 @@ void	micro_sorting(t_stack *a, t_stack *b);
 void	little_sorting(t_stack *a, t_stack *b);
 void	medium_sorting(t_stack *a, t_stack *b, int nb);
 void	big_sorting(t_stack *a, t_stack *b, int nb);
+//------------------------------------------------------------------------------
+
+//-------------------------Funções de Ordenação Inversa-------------------------
+void	micro_sorting_i(t_stack *a, t_stack *b);
+void	little_sorting_i(t_stack *a, t_stack *b);
+void	medium_sorting_i(t_stack *a, t_stack *b, int nb);
 //------------------------------------------------------------------------------
 
 #endif

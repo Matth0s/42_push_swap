@@ -6,103 +6,131 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:47:15 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 19:05:30 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 20:50:45 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* static void	move_nums_block(t_stack *a, t_stack *b, int start, int end)
+void	micro_sorting_i(t_stack *a, t_stack *b)
+{
+	if (check_sorting(b, 1))
+		return ;
+	else if (b->n == 2)
+		sm(a, b, 'b');
+	else
+	{
+		if (b->array[0] > b->array[1])
+		{
+			rrm(a, b, 'b');
+			if (b->array[0] < b->array[1])
+				sm(a, b, 'b');
+		}
+		else
+		{
+			if (b->array[0] > b->array[2])
+				sm(a, b, 'b');
+			else
+			{
+				rm(a, b, 'b');
+				if (b->array[0] < b->array[1])
+					sm(a, b, 'b');
+			}
+		}
+	}
+}
+
+void	little_sorting_i(t_stack *a, t_stack *b)
+{
+	int	big;
+	int	i;
+	int j;
+
+	i = 0;
+	big = get_big(b);
+	while (b->n != 3 && --big && ++i)
+	{
+		j = 0;
+		while (b->array[j] != big + 1)
+			j++;
+		if (j <= b->n / 2)
+			while (j--)
+				rm(a, b, 'b');
+		else
+			while (j++ < b->n)
+				rrm(a, b, 'b');
+		pm(a, b, 'a');
+	}
+	micro_sorting_i(a, b);
+	while (i--)
+		pm(a, b, 'b');
+}
+
+void	move_block_i(t_stack *a, t_stack *b, int start, int end)
 {
 	int	i;
 	int	j;
 
 	i = -1;
-	while (++i <= a->n / 2)
-		if (a->array[i] > start && a->array[i] <= end)
+	while (++i <= b->n / 2)
+		if (b->array[i] > start && b->array[i] <= end)
 			break ;
-	j = a->n;
-	while (--j > a->n / 2)
-		if (a->array[j] > start && a->array[j] <= end)
+	j = b->n;
+	while (--j > b->n / 2)
+		if (b->array[j] > start && b->array[j] <= end)
 			break ;
-	if (i <= a->n - j)
-		while (i--)
-			rm(a, b, 'a');
-	else
-		while (j++ < a->n)
-			rrm(a, b, 'a');
-	pm(a, b, 'b');
-	if (b->n > 1)
-		if (b->array[0] < b->array[1])
-			sm(a, b, 'b');
-}
-
-static void	treat_rest(t_stack *a, t_stack *b)
-{
-	if (a->n <= 1)
-		return ;
-	else if (a->n <= 3)
-		micro_sorting(a, b);
-	else
-		little_sorting(a, b);
-}
-
-static void	move_nums_back(t_stack *a, t_stack *b, int num)
-{
-	int	i;
-
-	i = 0;
-	while (b->array[i] != num)
-		i++;
-	if (i <= b->n / 2)
+	if (i <= b->n - j)
 		while (i--)
 			rm(a, b, 'b');
 	else
-		while (i++ < b->n)
+		while (j++ < b->n)
 			rrm(a, b, 'b');
 	pm(a, b, 'a');
+	if (a->n > 1)
+		if (a->array[0] > a->array[1])
+			sm(a, b, 'a');
 }
 
-void	big_sorting(t_stack *a, t_stack *b)
+void	move_back_i(t_stack *a, t_stack *b, int num)
 {
+	int	i;
+
+	i = 0;
+	while (a->array[i] != num)
+		i++;
+	if (i <= a->n / 2)
+		while (i--)
+			rm(a, b, 'a');
+	else
+		while (i++ < a->n)
+			rrm(a, b, 'a');
+	pm(a, b, 'b');
+}
+
+void	medium_sorting_i(t_stack *a, t_stack *b, int nb)
+{
+	int	little;
 	int	range;
 	int	j;
 	int	i;
 
-	int NBB = 13;
-	range = a->n / NBB;
-	i = -1;
-	while (++i < NBB)
+	i = nb;
+	range = b->n / nb;
+	little = get_little(b) + b->n % nb - 1;
+	while (i--)
 	{
 		j = 0;
 		while (j++ < range)
-			move_nums_block(a, b, i * range, (i + 1)* range);
+			move_block_i(a, b, little + i * range, little + (i + 1) * range);
 	}
-	treat_rest(a, b);
-	i = range * NBB + 1;
-	while (--i)
-		move_nums_back(a, b, i);
+	if (b->n > 1)
+	{
+		if (b->n <= 3)
+			micro_sorting_i(a, b);
+		else
+			little_sorting_i(a, b);
+	}
+	i =  little;
+	while (++i <= range * nb)
+		move_back_i(a, b, i);
 }
-
-void	medium_sorting_2(t_stack *a, t_stack *b)
-{
-	int	range;
-	int	i;
-
-	range = a->n / 2;
-	i = 0;
-	while (i++ < range)
-		move_nums_block(a, b, 0, range);
-	//print_stacks(a, b);
-
-	medium_sorting_i(a, b);
-	//print_stacks(a, b);
-//	exit(0);
-	medium_sorting(a, b);
-	//print_stacks(a, b);
-	//exit(0);
-	i = b->n + 1;
-	while (--i)
-		move_nums_back(a, b, i);
-	//print_stacks(a, b);
-} */

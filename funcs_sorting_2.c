@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 14:27:18 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 19:05:04 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 20:46:23 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,28 +83,13 @@ void	medium_sorting(t_stack *a, t_stack *b, int nb)
 
 void	big_sorting(t_stack *a, t_stack *b, int nb)
 {
-	int	little;
 	int	range;
-	int	j;
 	int	i;
 
-	i = -1;
-	range = a->n / nb;
-	little = get_little(a) - 1;
-	while (++i < nb)
-	{
-		j = 0;
-		while (j++ < range)
-			move_block(a, b, little + i * range, little + (i + 1) * range);
-	}
-	if (a->n > 1)
-	{
-		if (a->n <= 3)
-			micro_sorting(a, b);
-		else
-			little_sorting(a, b);
-	}
-	i = b->n + 1;
-	while (--i)
-		move_back(a, b, i);
+	i = 0;
+	range = a->n / 2;
+	while (i++ < range)
+		move_block(a, b, 0, range);
+	medium_sorting_i(a, b, nb);
+	medium_sorting(a, b, nb);
 }

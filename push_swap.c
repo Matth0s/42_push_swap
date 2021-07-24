@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 22:23:29 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 19:46:43 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 20:51:48 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	main(int argc, char **argv)
 	else if (a.n <= 100)
 		medium_sorting(&a, &b, 6);
 	else
-		big_sorting(&a, &b, 12);
+		big_sorting(&a, &b, 9);
 	//print_stacks(&a,&b);
 	return (0);
 }
