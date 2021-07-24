@@ -1,14 +1,12 @@
 
 SRC		=	push_swap.c \
 			check_args.c \
-			primary_moves.c \
-			secundary_moves.c \
-			funcs_sorting_1.c \
-			funcs_sorting_2.c \
-			funcs_sorting_3.c \
+			moves_pri.c \
+			moves_sec.c \
+			sort_1.c \
+			sort_2.c \
+			sort_inv.c \
 			utils.c \
-			\
-			print_stack.c
 
 OBJ		=	${SRC:.c=.o}
 #--------------------------------------//---------------------------------------
@@ -44,7 +42,7 @@ clean:
 	@echo ""
 
 fclean:		clean
-	@rm -rf $(NAME) log_error
+	@rm -rf $(NAME)
 	@echo ""
 	@echo "/ ************************************ \\"
 	@echo "|           Push_Swap Deletada         |"

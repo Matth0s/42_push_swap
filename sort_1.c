@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funcs_sorting_1.c                                  :+:      :+:    :+:   */
+/*   sort_1.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 02:44:26 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 19:04:21 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 21:54:19 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_sorting(t_stack *stack, int inv)
+int	check_sort(t_stack *stack, int inv)
 {
 	int	i;
 
@@ -27,9 +27,9 @@ int	check_sorting(t_stack *stack, int inv)
 	return (1);
 }
 
-void	micro_sorting(t_stack *a, t_stack *b)
+void	micro_sort(t_stack *a, t_stack *b)
 {
-	if (check_sorting(a, 0))
+	if (check_sort(a, 0))
 		return ;
 	else if (a->n == 2)
 		sm(a, b, 'a');
@@ -55,7 +55,7 @@ void	micro_sorting(t_stack *a, t_stack *b)
 	}
 }
 
-void	little_sorting(t_stack *a, t_stack *b)
+void	little_sort(t_stack *a, t_stack *b)
 {
 	int	little;
 	int	i;
@@ -76,7 +76,7 @@ void	little_sorting(t_stack *a, t_stack *b)
 				rrm(a, b, 'a');
 		pm(a, b, 'b');
 	}
-	micro_sorting(a, b);
+	micro_sort(a, b);
 	while (i--)
 		pm(a, b, 'a');
 }

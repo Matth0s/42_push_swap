@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:21:30 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 21:00:34 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 21:55:41 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,17 +47,17 @@ void	pm(t_stack *a, t_stack *b, char c);
 //------------------------------------------------------------------------------
 
 //-----------------------------Funções de Ordenação-----------------------------
-int		check_sorting(t_stack *stack, int inv);
-void	micro_sorting(t_stack *a, t_stack *b);
-void	little_sorting(t_stack *a, t_stack *b);
-void	medium_sorting(t_stack *a, t_stack *b, int nb);
-void	big_sorting(t_stack *a, t_stack *b, int nb);
+int		check_sort(t_stack *stack, int inv);
+void	micro_sort(t_stack *a, t_stack *b);
+void	little_sort(t_stack *a, t_stack *b);
+void	medium_sort(t_stack *a, t_stack *b, int nb);
+void	big_sort(t_stack *a, t_stack *b, int nb);
 //------------------------------------------------------------------------------
 
 //-------------------------Funções de Ordenação Inversa-------------------------
-void	micro_sorting_i(t_stack *a, t_stack *b);
-void	little_sorting_i(t_stack *a, t_stack *b);
-void	medium_sorting_i(t_stack *a, t_stack *b, int nb);
+void	micro_sort_inv(t_stack *a, t_stack *b);
+void	little_sort_inv(t_stack *a, t_stack *b);
+void	medium_sort_inv(t_stack *a, t_stack *b, int nb);
 //------------------------------------------------------------------------------
 
 #endif

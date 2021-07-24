@@ -1,20 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funcs_sorting_3.c                                  :+:      :+:    :+:   */
+/*   sort_inv.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 19:47:15 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 20:50:45 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 21:58:36 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	micro_sorting_i(t_stack *a, t_stack *b)
+void	micro_sort_inv(t_stack *a, t_stack *b)
 {
-	if (check_sorting(b, 1))
+	if (check_sort(b, 1))
 		return ;
 	else if (b->n == 2)
 		sm(a, b, 'b');
@@ -40,11 +40,11 @@ void	micro_sorting_i(t_stack *a, t_stack *b)
 	}
 }
 
-void	little_sorting_i(t_stack *a, t_stack *b)
+void	little_sort_inv(t_stack *a, t_stack *b)
 {
 	int	big;
 	int	i;
-	int j;
+	int	j;
 
 	i = 0;
 	big = get_big(b);
@@ -61,7 +61,7 @@ void	little_sorting_i(t_stack *a, t_stack *b)
 				rrm(a, b, 'b');
 		pm(a, b, 'a');
 	}
-	micro_sorting_i(a, b);
+	micro_sort_inv(a, b);
 	while (i--)
 		pm(a, b, 'b');
 }
@@ -107,7 +107,7 @@ void	move_back_i(t_stack *a, t_stack *b, int num)
 	pm(a, b, 'b');
 }
 
-void	medium_sorting_i(t_stack *a, t_stack *b, int nb)
+void	medium_sort_inv(t_stack *a, t_stack *b, int nb)
 {
 	int	little;
 	int	range;
@@ -126,11 +126,11 @@ void	medium_sorting_i(t_stack *a, t_stack *b, int nb)
 	if (b->n > 1)
 	{
 		if (b->n <= 3)
-			micro_sorting_i(a, b);
+			micro_sort_inv(a, b);
 		else
-			little_sorting_i(a, b);
+			little_sort_inv(a, b);
 	}
-	i =  little;
+	i = little;
 	while (++i <= range * nb)
 		move_back_i(a, b, i);
 }

@@ -6,16 +6,13 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/13 22:23:29 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 20:51:48 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 21:55:56 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	print_stacks(t_stack *a, t_stack *b);
-
-//------------------------------Funções da main---------------------------------
-int	init_stacks(int n, t_stack *a, t_stack *b)
+static int	init_stacks(int n, t_stack *a, t_stack *b)
 {
 	a->n = n;
 	a->array = malloc(n * sizeof(int));
@@ -31,7 +28,7 @@ int	init_stacks(int n, t_stack *a, t_stack *b)
 	return (0);
 }
 
-void	error(t_stack *a, t_stack *b, int i)
+static void	error(t_stack *a, t_stack *b, int i)
 {
 	if (i)
 	{
@@ -51,17 +48,15 @@ int	main(int argc, char **argv)
 		error(&a, &b, 0);
 	if (check_args(argc, argv, &a, &b))
 		error(&a, &b, 1);
-	if (check_sorting(&a, 0))
+	if (check_sort(&a, 0))
 		return (0);
-	//print_stacks(&a,&b);
 	if (a.n <= 3)
-		micro_sorting(&a, &b);
+		micro_sort(&a, &b);
 	else if (a.n <= 14)
-		little_sorting(&a, &b);
-	else if (a.n <= 100)
-		medium_sorting(&a, &b, 6);
+		little_sort(&a, &b);
+	else if (a.n <= 170)
+		medium_sort(&a, &b, 6);
 	else
-		big_sorting(&a, &b, 9);
-	//print_stacks(&a,&b);
+		big_sort(&a, &b, 9);
 	return (0);
 }

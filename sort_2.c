@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   funcs_sorting_2.c                                  :+:      :+:    :+:   */
+/*   sort_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 14:27:18 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 20:46:23 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/23 21:58:04 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static void	move_back(t_stack *a, t_stack *b, int num)
 	pm(a, b, 'a');
 }
 
-void	medium_sorting(t_stack *a, t_stack *b, int nb)
+void	medium_sort(t_stack *a, t_stack *b, int nb)
 {
 	int	little;
 	int	range;
@@ -72,16 +72,16 @@ void	medium_sorting(t_stack *a, t_stack *b, int nb)
 	if (a->n > 1)
 	{
 		if (a->n <= 3)
-			micro_sorting(a, b);
+			micro_sort(a, b);
 		else
-			little_sorting(a, b);
+			little_sort(a, b);
 	}
 	i = b->n + 1;
 	while (--i)
 		move_back(a, b, i);
 }
 
-void	big_sorting(t_stack *a, t_stack *b, int nb)
+void	big_sort(t_stack *a, t_stack *b, int nb)
 {
 	int	range;
 	int	i;
@@ -90,6 +90,6 @@ void	big_sorting(t_stack *a, t_stack *b, int nb)
 	range = a->n / 2;
 	while (i++ < range)
 		move_block(a, b, 0, range);
-	medium_sorting_i(a, b, nb);
-	medium_sorting(a, b, nb);
+	medium_sort_inv(a, b, nb);
+	medium_sort(a, b, nb);
 }
