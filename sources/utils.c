@@ -6,11 +6,24 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:51:58 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 19:05:53 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/25 16:13:58 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	get_little(t_stack *stack)
+{
+	int	little;
+	int	i;
+
+	i = 0;
+	little = stack->array[0];
+	while (++i < stack->n)
+		if (little > stack->array[i])
+			little = stack->array[i];
+	return (little);
+}
 
 int	ft_isdigit(int c)
 {
@@ -55,30 +68,4 @@ double	ft_atod(const char *nptr)
 		}
 	}
 	return ((*(num) + *(num + 1)) * *(num + 2));
-}
-
-int	get_little(t_stack *stack)
-{
-	int	little;
-	int	i;
-
-	i = 0;
-	little = stack->array[0];
-	while (++i < stack->n)
-		if (little > stack->array[i])
-			little = stack->array[i];
-	return (little);
-}
-
-int	get_big(t_stack *stack)
-{
-	int	big;
-	int	i;
-
-	i = 0;
-	big = stack->array[0];
-	while (++i < stack->n)
-		if (big < stack->array[i])
-			big = stack->array[i];
-	return (big);
 }

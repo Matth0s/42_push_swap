@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 14:27:18 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 21:58:04 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/25 17:12:49 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,20 @@ void	medium_sort(t_stack *a, t_stack *b, int nb)
 		move_back(a, b, i);
 }
 
-void	big_sort(t_stack *a, t_stack *b, int nb)
+void	big_sort(t_stack *a, t_stack *b, int ns, int nb)
 {
 	int	range;
 	int	i;
+	int	j;
 
-	i = 0;
-	range = a->n / 2;
-	while (i++ < range)
-		move_block(a, b, 0, range);
-	medium_sort_inv(a, b, nb);
+	i = -1;
+	range = a->n / ns;
+	while (++i < ns - 1)
+	{
+		j = 0;
+		while (j++ < range)
+			move_block(a, b, i * range, (i + 1) * range);
+		medium_sort_inv(a, b, nb, i * range + 1);
+	}
 	medium_sort(a, b, nb);
 }

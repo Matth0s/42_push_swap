@@ -6,30 +6,26 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/22 02:44:26 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 21:54:19 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/25 13:23:45 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	check_sort(t_stack *stack, int inv)
+int	check_sort(t_stack *stack)
 {
 	int	i;
 
 	i = -1;
 	while (++i < stack->n - 1)
-	{
-		if (!(inv) && stack->array[i] > stack->array[i + 1])
+		if (stack->array[i] > stack->array[i + 1])
 			return (0);
-		if (inv && stack->array[i] < stack->array[i + 1])
-			return (0);
-	}
 	return (1);
 }
 
 void	micro_sort(t_stack *a, t_stack *b)
 {
-	if (check_sort(a, 0))
+	if (check_sort(a))
 		return ;
 	else if (a->n == 2)
 		sm(a, b, 'a');

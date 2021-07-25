@@ -1,4 +1,5 @@
-
+#--------------------------------------//---------------------------------------
+SRC_DIR	=	./sources
 SRC		=	push_swap.c \
 			check_args.c \
 			moves_pri.c \
@@ -8,33 +9,40 @@ SRC		=	push_swap.c \
 			sort_inv.c \
 			utils.c \
 
-OBJ		=	${SRC:.c=.o}
+OBJ_DIR	=	./builds
+OBJ		=	$(patsubst %.c, $(OBJ_DIR)/%.o, $(SRC))
+
+INCD_DIR=	./includes
+INCD	=	push_swap.h
 #--------------------------------------//---------------------------------------
+vpath %.c $(SRC_DIR)
+vpath %.h $(INCD_DIR)
+
 NAME	=	push_swap
 
-FLAGS	=	-Wall -Wextra -Werror
+CFLAGS	=	-Wall -Wextra -Werror
 
-INCLUDE	=	push_swap.h
+RM		=	rm -rf
 
 CC		=	clang
 #--------------------------------------//---------------------------------------
-.c.o:
-	@${CC} ${FLAGS} -c $< -o ${<:.c=.o}
-	@echo "  Criando .o de "$<
-#--------------------------------------//---------------------------------------
-all:		$(NAME)
+all:			$(NAME)
 
-$(NAME):	$(OBJ) $(INCLUDE)
-	@$(CC) $(FLAGS) $(OBJ) -o $(NAME)
+$(NAME):		$(OBJ)
+	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 	@echo ""
 	@echo "/ ************************************ \\"
 	@echo "|           Push_Swap Criado           |"
 	@echo "\\ ************************************ /"
 	@echo ""
 
+$(OBJ_DIR)/%.o:	%.c $(INCD)
+	@mkdir -p $(OBJ_DIR)
+	@$(CC) -c -o $@ $(CFLAGS) -I $(INCD_DIR) $<
+	@echo "  Criando .o de "$<
 #--------------------------------------//---------------------------------------
 clean:
-	@rm -rf $(OBJ)
+	@$(RM) $(OBJ_DIR)
 	@echo ""
 	@echo "/ ************************************ \\"
 	@echo "|         Arquivos .o Deletados        |"
@@ -42,7 +50,7 @@ clean:
 	@echo ""
 
 fclean:		clean
-	@rm -rf $(NAME)
+	@$(RM) $(NAME)
 	@echo ""
 	@echo "/ ************************************ \\"
 	@echo "|           Push_Swap Deletada         |"

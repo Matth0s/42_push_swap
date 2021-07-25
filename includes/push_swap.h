@@ -6,7 +6,7 @@
 /*   By: mmoreira <mmoreira@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/21 16:21:30 by mmoreira          #+#    #+#             */
-/*   Updated: 2021/07/23 21:55:41 by mmoreira         ###   ########.fr       */
+/*   Updated: 2021/07/25 16:13:44 by mmoreira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ typedef struct s_stack
 }				t_stack;
 
 //------------------------------------Uteis-------------------------------------
+int		get_little(t_stack *stack);
 int		ft_isdigit(int c);
 int		ft_isspace(int c);
 double	ft_atod(const char *nptr);
-int		get_little(t_stack *stack);
-int		get_big(t_stack *stack);
 //------------------------------------------------------------------------------
 
 //----------------------------Checando os Argumentos----------------------------
@@ -47,17 +46,12 @@ void	pm(t_stack *a, t_stack *b, char c);
 //------------------------------------------------------------------------------
 
 //-----------------------------Funções de Ordenação-----------------------------
-int		check_sort(t_stack *stack, int inv);
+int		check_sort(t_stack *stack);
 void	micro_sort(t_stack *a, t_stack *b);
 void	little_sort(t_stack *a, t_stack *b);
 void	medium_sort(t_stack *a, t_stack *b, int nb);
-void	big_sort(t_stack *a, t_stack *b, int nb);
-//------------------------------------------------------------------------------
-
-//-------------------------Funções de Ordenação Inversa-------------------------
-void	micro_sort_inv(t_stack *a, t_stack *b);
-void	little_sort_inv(t_stack *a, t_stack *b);
-void	medium_sort_inv(t_stack *a, t_stack *b, int nb);
+void	medium_sort_inv(t_stack *a, t_stack *b, int nb, int start);
+void	big_sort(t_stack *a, t_stack *b, int ns, int nb);
 //------------------------------------------------------------------------------
 
 #endif
